@@ -1,0 +1,30 @@
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+
+metadata:
+  name: ben-prod
+  region: eu-west-2
+
+nodeGroups:
+  - name: worker-small
+    instanceType: t2.micro
+    desiredCapacity: 4
+    minSize: 1
+    maxSize: 5
+    volumeSize: 20
+    volumeType: gp2
+    iam:
+      withAddonPolicies:
+        autoScaler: true
+        externalDNS: true
+  - name: worker-large
+    instanceType: t2.medium
+    desiredCapacity: 2
+    minSize: 1
+    maxSize: 3
+    volumeSize: 20
+    volumeType: gp2
+    iam:
+      withAddonPolicies:
+        autoScaler: true
+        externalDNS: true
