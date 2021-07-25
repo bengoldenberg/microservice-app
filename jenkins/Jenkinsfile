@@ -1,0 +1,21 @@
+pipeline {
+    agent any 
+    stages {
+        stage('Git clone and setup') { 
+            steps {
+                git branch: "master"
+                nl
+            }
+        }
+        stage('Test') { 
+            steps {
+                // 
+            }
+        }
+        stage('Deploy') { 
+            steps {
+                // 
+            }
+        }
+    }
+}
